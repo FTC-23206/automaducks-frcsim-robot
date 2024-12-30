@@ -4,6 +4,7 @@ import com.automaducks.wpibridge.WpiBridge;
 import com.automaducks.wpibridge.WpiBridgeEventListener;
 import com.automaducks.wpibridge.WpiBridgeEventMessage;
 import com.automaducks.wpibridge.messages.WpiMessage;
+import com.automaducks.wpibridge.messages.WpiPwmData;
 import com.automaducks.wpibridge.messages.WpiPwmMessage;
 
 import org.junit.jupiter.api.Test;
@@ -21,14 +22,14 @@ public class WebSocketServerTests {
                 case PWM:
                     WpiPwmMessage pwmMessage = (WpiPwmMessage) wpiMessage;
 
-                    System.out.printf(
-                        "PWM received. Device: %s, Init: %b, Speed: %.2f, Position: %.2f, ZL: %b \n",
-                        pwmMessage.getDevice(),
-                        pwmMessage.getData().isInit(),
-                        pwmMessage.getData().getSpeed(),
-                        pwmMessage.getData().getPosition(),
-                        pwmMessage.getData().isZeroLatch());
+                    WpiPwmData pwmData = pwmMessage.getData();
 
+                    if (pwmData.getSpeed() != null) {
+                        System.out.printf(
+                            "PWM received. Device: %s, Speed: %.2f\n",
+                            pwmMessage.getDevice(),
+                            pwmMessage.getData().getSpeed());
+                    }
                     break;
                 case Joystick:
                 case DriverStation:

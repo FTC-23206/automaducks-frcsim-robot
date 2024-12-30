@@ -11,46 +11,46 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class WpiPwmData {
 
     @JsonProperty("<init")
-    private boolean init;
+    private Boolean init;
 
     @JsonProperty("<speed")
-    private float speed;
+    private Float speed;
 
     @JsonProperty("<position")
-    private float position;
+    private Float position;
 
     @JsonProperty("<zero_latch")
-    private boolean zeroLatch;
+    private Boolean zeroLatch;
 
-    public boolean isInit() {
+    public Boolean isInit() {
         return init;
     }
 
-    public void setInit(boolean init) {
+    public void setInit(Boolean init) {
         this.init = init;
     }
 
-    public float getSpeed() {
+    public Float getSpeed() {
         return speed;
     }
 
-    public void setSpeed(float speed) {
+    public void setSpeed(Float speed) {
         this.speed = speed;
     }
 
-    public float getPosition() {
+    public Float getPosition() {
         return position;
     }
 
-    public void setPosition(float position) {
+    public void setPosition(Float position) {
         this.position = position;
     }
 
-    public boolean isZeroLatch() {
+    public Boolean isZeroLatch() {
         return zeroLatch;
     }
 
-    public void setZeroLatch(boolean zeroLatch) {
+    public void setZeroLatch(Boolean zeroLatch) {
         this.zeroLatch = zeroLatch;
     }
 }
